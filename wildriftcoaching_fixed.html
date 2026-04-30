@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WildRiftCoaching.com — Top Wild Rift Coaching by Danny</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0a0a12; color: #e0e0f0; font-family: sans-serif; }
+
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,18,0.92);
+      border-bottom: 1px solid #1e1e3a;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 60px;
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo { font-size: 18px; font-weight: 500; color: #a78bfa; letter-spacing: 1px; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: #9090b0; font-size: 14px; text-decoration: none; transition: color 0.2s; cursor: pointer; }
+    .nav-links a:hover { color: #a78bfa; }
+    .nav-cta {
+      background: #7c3aed; color: #fff; border: none;
+      padding: 8px 20px; border-radius: 6px; font-size: 14px;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #6d28d9; }
+
+    .hero {
+      min-height: 90vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      padding: 4rem 2rem;
+      background: radial-gradient(ellipse at 50% 0%, #1a0a3a 0%, #0a0a12 65%);
+      border-bottom: 1px solid #1e1e3a;
+      position: relative; overflow: hidden;
+    }
+    .rank-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(124,58,237,0.15); border: 1px solid #7c3aed;
+      color: #a78bfa; border-radius: 20px; padding: 6px 16px;
+      font-size: 13px; font-weight: 500; margin-bottom: 1.5rem;
+      letter-spacing: 0.5px;
+    }
+    .rank-dot { width: 8px; height: 8px; border-radius: 50%; background: #7c3aed; animation: pulse 1.8s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+    .hero h1 { font-size: 56px; font-weight: 700; line-height: 1.1; margin-bottom: 1rem; }
+    .hero h1 span { color: #a78bfa; }
+    .hero p { font-size: 18px; color: #7070a0; max-width: 520px; line-height: 1.7; margin-bottom: 2rem; }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: #7c3aed; color: #fff; border: none;
+      padding: 14px 32px; border-radius: 8px; font-size: 15px;
+      cursor: pointer; font-weight: 500; transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #6d28d9; }
+    .btn-secondary {
+      background: transparent; color: #a78bfa;
+      border: 1px solid #7c3aed;
+      padding: 14px 32px; border-radius: 8px; font-size: 15px;
+      cursor: pointer; font-weight: 500; transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(124,58,237,0.1); }
+
+    .stats-row {
+      display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;
+      padding: 2.5rem 2rem;
+      border-bottom: 1px solid #1e1e3a;
+      background: #0d0d1a;
+    }
+    .stat { text-align: center; }
+    .stat-val { font-size: 28px; font-weight: 700; color: #a78bfa; }
+    .stat-lbl { font-size: 13px; color: #6060a0; margin-top: 4px; }
+
+    section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
+    .section-tag { font-size: 12px; color: #a78bfa; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .section-title { font-size: 32px; font-weight: 600; color: #e0e0f0; margin-bottom: 1rem; }
+    .section-sub { font-size: 16px; color: #7070a0; line-height: 1.7; max-width: 600px; }
+
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+    .about-card { background: #0f0f1e; border: 1px solid #1e1e3a; border-radius: 12px; padding: 1.5rem; }
+    .about-card h3 { font-size: 15px; font-weight: 500; color: #a78bfa; margin-bottom: 0.5rem; }
+    .about-card p { font-size: 14px; color: #7070a0; line-height: 1.7; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .service-card {
+      background: #0f0f1e; border: 1px solid #1e1e3a;
+      border-radius: 12px; padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      cursor: default; position: relative;
+    }
+    .service-card:hover { border-color: #7c3aed; transform: translateY(-3px); }
+    .service-card.featured { border-color: #7c3aed; }
+    .badge-popular {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: #7c3aed; color: #fff; font-size: 11px; padding: 3px 14px;
+      border-radius: 10px; white-space: nowrap;
+    }
+    .service-icon { font-size: 24px; margin-bottom: 1rem; }
+    .service-name { font-size: 17px; font-weight: 600; color: #e0e0f0; margin-bottom: 0.5rem; }
+    .service-desc { font-size: 13px; color: #7070a0; line-height: 1.6; margin-bottom: 1.25rem; }
+    .service-price { font-size: 26px; font-weight: 700; color: #a78bfa; }
+    .service-price span { font-size: 14px; color: #6060a0; font-weight: 400; }
+    .service-btn {
+      display: block; width: 100%; margin-top: 1.25rem;
+      background: transparent; color: #a78bfa; border: 1px solid #7c3aed;
+      padding: 10px; border-radius: 7px; font-size: 14px; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .service-btn:hover { background: rgba(124,58,237,0.15); }
+    .service-card.featured .service-btn { background: #7c3aed; color: #fff; border-color: transparent; }
+    .service-card.featured .service-btn:hover { background: #6d28d9; }
+
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .testi-card { background: #0f0f1e; border: 1px solid #1e1e3a; border-radius: 12px; padding: 1.5rem; }
+    .testi-stars { color: #a78bfa; font-size: 14px; margin-bottom: 0.75rem; }
+    .testi-text { font-size: 14px; color: #9090b0; line-height: 1.7; margin-bottom: 1rem; font-style: italic; }
+    .testi-author { font-size: 13px; color: #6060a0; }
+    .testi-author strong { color: #a78bfa; display: block; }
+
+    .contact-box {
+      background: #0f0f1e; border: 1px solid #1e1e3a; border-radius: 16px;
+      padding: 2.5rem; margin-top: 3rem;
+    }
+    .contact-box input, .contact-box textarea, .contact-box select {
+      width: 100%; background: #1a1a2e; border: 1px solid #2a2a4a;
+      color: #e0e0f0; border-radius: 8px; padding: 12px 14px;
+      font-size: 14px; margin-bottom: 1rem; outline: none;
+      transition: border-color 0.2s; font-family: inherit;
+    }
+    .contact-box input:focus, .contact-box textarea:focus, .contact-box select:focus { border-color: #7c3aed; }
+    .contact-box textarea { height: 110px; resize: vertical; }
+    .contact-box select option { background: #1a1a2e; }
+    .contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .submit-btn {
+      width: 100%; background: #7c3aed; color: #fff; border: none;
+      padding: 14px; border-radius: 8px; font-size: 15px; font-weight: 500;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .submit-btn:hover { background: #6d28d9; }
+    .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap; }
+    .social-link {
+      display: flex; align-items: center; gap: 8px;
+      color: #7070a0; font-size: 14px; text-decoration: none;
+      border: 1px solid #1e1e3a; border-radius: 8px; padding: 10px 18px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .social-link:hover { border-color: #7c3aed; color: #a78bfa; }
+
+    hr.divider { border: none; border-top: 1px solid #1e1e3a; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      border-top: 1px solid #1e1e3a;
+      font-size: 13px; color: #404060;
+      background: #0a0a12;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">WILDRIFTCOACHING.COM</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Now</button>
+</nav>
+
+<div class="hero">
+  <div class="rank-badge">
+    <div class="rank-dot"></div>
+    Sovereign · EU Top 20 · China Top 0.01% · LoL Challenger S6
+  </div>
+  <h1>Climb Faster<br>with <span>Danny</span></h1>
+  <p>Top-tier Wild Rift coaching from a Sovereign-ranked player with elite experience on both the EU and China ladders.</p>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a Session</button>
+    <button class="btn-secondary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">View Packages</button>
+  </div>
+</div>
+
+<div class="stats-row">
+  <div class="stat"><div class="stat-val">Sovereign</div><div class="stat-lbl">Highest & Current Rank</div></div>
+  <div class="stat"><div class="stat-val">Top 20</div><div class="stat-lbl">EU Wild Rift Ladder</div></div>
+  <div class="stat"><div class="stat-val">Top 0.01%</div><div class="stat-lbl">China Server</div></div>
+  <div class="stat"><div class="stat-val">Challenger</div><div class="stat-lbl">LoL PC — Season 6</div></div>
+  <div class="stat"><div class="stat-val">200+</div><div class="stat-lbl">Students Coached</div></div>
+</div>
+
+<section id="about">
+  <div class="section-tag">About Danny</div>
+  <div class="section-title">Who is your coach?</div>
+  <div class="section-sub">Danny is one of the highest-ranked Wild Rift players in the world. Currently sitting at <strong style="color:#a78bfa">Sovereign</strong> — his highest rank — he reached <strong style="color:#a78bfa">Top 20 on the EU Wild Rift ladder</strong> and ranked in the <strong style="color:#a78bfa">top 0.01% on the Chinese server</strong>, the most competitive region on the planet. On top of that, Danny was a <strong style="color:#a78bfa">Challenger on League of Legends PC in Season 6</strong>, proving his elite-level game sense goes beyond just mobile. His cross-game, cross-regional experience makes him one of the most qualified coaches you'll find.</div>
+  <div style="margin-top:2rem; border:1px solid #1e1e3a; border-radius:12px; overflow:hidden; max-width:320px;">
+    <img src="https://i.imgur.com/lu6QryU.jpeg" alt="Danny's Challenger Tier League of Legends jacket" style="width:100%; display:block;" />
+    <div style="background:#0f0f1e; padding:0.75rem 1rem; text-align:center;">
+      <div style="font-size:12px; color:#a78bfa; letter-spacing:1px; text-transform:uppercase;">Challenger Tier — League of Legends PC · Season 6</div>
+    </div>
+  </div>
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>Elite Rank</h3>
+      <p>Reached Sovereign tier and placed Top 20–30 on the EU ladder. Later took on the Chinese server — the hardest in the world — and ranked high there too.</p>
+    </div>
+    <div class="about-card">
+      <h3>Personalized Coaching</h3>
+      <p>Every student gets a tailored plan. Danny analyzes your replays and identifies your specific weaknesses to fast-track your improvement.</p>
+    </div>
+    <div class="about-card">
+      <h3>All Roles Covered</h3>
+      <p>Whether you're a jungler, support, ADC, mid laner, or baron laner — Danny can coach you on positioning, decision-making, and champion mechanics.</p>
+    </div>
+    <div class="about-card">
+      <h3>Proven Results</h3>
+      <p>Students consistently rank up after just a few sessions. Many have jumped 2–3 ranks within weeks using Danny's coaching framework.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="services">
+  <div class="section-tag">Services</div>
+  <div class="section-title">Choose your package</div>
+  <div class="section-sub">Flexible coaching options for every level and budget.</div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🎁</div>
+      <div class="service-name">Free VOD Review</div>
+      <div class="service-desc">Not sure yet? Get a free replay review to see what Danny can do. Limited spots — claim yours on Discord.</div>
+      <div class="service-price">$0 <span>/ one-time</span></div>
+      <button class="service-btn" onclick="window.open('https://discord.com/users/dannydanny2148')">Claim on Discord</button>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎬</div>
+      <div class="service-name">VOD Review</div>
+      <div class="service-desc">Submit a replay and Danny will record a full breakdown of your mistakes and how to fix them.</div>
+      <div class="service-price">$15 <span>/ review</span></div>
+      <button class="service-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book this</button>
+    </div>
+    <div class="service-card featured">
+      <div class="badge-popular">Most Popular</div>
+      <div class="service-icon">🎮</div>
+      <div class="service-name">1-on-1 Session</div>
+      <div class="service-desc">Live coaching session via Discord. Play together, get real-time feedback, and build better habits fast.</div>
+      <div class="service-price">$30 <span>/ hour</span></div>
+      <button class="service-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book this</button>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📦</div>
+      <div class="service-name">5-Session Bundle</div>
+      <div class="service-desc">Best value for serious players. Five live sessions plus VOD reviews and a personalized improvement plan.</div>
+      <div class="service-price">$120 <span>/ bundle</span></div>
+      <button class="service-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book this</button>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="reviews">
+  <div class="section-tag">Testimonials</div>
+  <div class="section-title">What students say</div>
+  <div style="margin-bottom:1.5rem;">
+    <a href="https://www.fiverr.com/users/sifaks/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.12);border:1px solid #7c3aed;color:#a78bfa;padding:8px 20px;border-radius:8px;font-size:14px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(124,58,237,0.25)'" onmouseout="this.style.background='rgba(124,58,237,0.12)'">
+      ⭐ See all verified reviews on Fiverr
+    </a>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-text">"Danny helped me go from Gold to Platinum in two weeks. His map awareness tips alone were game-changing."</div>
+      <div class="testi-author"><strong>@KaizenFrost</strong> Gold → Platinum</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-text">"The VOD review was incredibly detailed. I finally understood why I kept losing late-game fights."</div>
+      <div class="testi-author"><strong>@NightOwlWR</strong> Silver → Gold</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-text">"Best investment I've made in my ranked grind. Danny explains everything clearly and is very patient."</div>
+      <div class="testi-author"><strong>@VaultBreaker</strong> Platinum → Diamond</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="contact">
+  <div class="section-tag">Book a Session</div>
+  <div class="section-title">Ready to rank up?</div>
+  <div class="section-sub">Fill out the form below and Danny will reach out within 24 hours to schedule your session.</div>
+  <div class="contact-box">
+    <div class="contact-row">
+      <input type="text" id="f-name" placeholder="Your name" />
+      <input type="email" id="f-email" placeholder="Email address" />
+    </div>
+    <select id="f-pkg">
+      <option value="" disabled selected>Select a package</option>
+      <option>Free VOD Review</option>
+      <option>VOD Review — $15</option>
+      <option>1-on-1 Session — $30/hr</option>
+      <option>5-Session Bundle — $120</option>
+    </select>
+    <input type="text" id="f-rank" placeholder="Your current rank (e.g. Gold II)" />
+    <textarea id="f-msg" placeholder="Tell Danny what you want to improve (optional)..."></textarea>
+    <button class="submit-btn" onclick="
+      const name = document.getElementById('f-name').value;
+      const email = document.getElementById('f-email').value;
+      const pkg = document.getElementById('f-pkg').value;
+      const rank = document.getElementById('f-rank').value;
+      const msg = document.getElementById('f-msg').value;
+      const body = encodeURIComponent('Name: '+name+'\nEmail: '+email+'\nPackage: '+pkg+'\nRank: '+rank+'\nMessage: '+msg);
+      window.location.href='mailto:yooydog@gmail.com?subject=Coaching Inquiry&body='+body;
+      this.textContent='Opening your email app...'; this.style.background='#4a1d96';
+    ">Send Message</button>
+  </div>
+  <div class="social-links">
+    <div class="social-link">Discord: dannydanny2148</div>
+    <div class="social-link">Email: yooydog@gmail.com</div>
+    <a class="social-link" href="https://www.fiverr.com/sifaks/give-you-the-best-challenger-coaching-lol-or-wild-rift" target="_blank">Book on Fiverr</a>
+    <a class="social-link" href="https://www.fiverr.com/users/sifaks/" target="_blank">Fiverr Profile & Reviews</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 WildRiftCoaching.com — All rights reserved.
+</footer>
+
+</body>
+</html>
