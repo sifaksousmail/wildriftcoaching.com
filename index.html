@@ -111,6 +111,25 @@
     .service-card.featured .service-btn { background: #7c3aed; color: #fff; border-color: transparent; }
     .service-card.featured .service-btn:hover { background: #6d28d9; }
 
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .blog-card {
+      background: #0f0f1e; border: 1px solid #1e1e3a;
+      border-radius: 12px; padding: 1.5rem;
+      display: flex; flex-direction: column; min-height: 250px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .blog-card:hover { border-color: #7c3aed; transform: translateY(-3px); }
+    .blog-meta { display: flex; justify-content: space-between; gap: 1rem; color: #6060a0; font-size: 12px; margin-bottom: 1rem; }
+    .blog-category { color: #a78bfa; text-transform: uppercase; letter-spacing: 1px; }
+    .blog-title { color: #e0e0f0; font-size: 19px; line-height: 1.35; font-weight: 600; margin-bottom: 0.75rem; }
+    .blog-desc { color: #7070a0; font-size: 14px; line-height: 1.7; flex: 1; }
+    .blog-link { color: #a78bfa; font-size: 14px; font-weight: 500; text-decoration: none; margin-top: 1.25rem; }
+    .blog-link:hover { color: #c4b5fd; }
+    .blog-note {
+      margin-top: 1.5rem; background: rgba(124,58,237,0.1); border: 1px solid #2a1f4a;
+      border-radius: 12px; padding: 1.25rem; color: #9090b0; font-size: 14px; line-height: 1.7;
+    }
+
     .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
     .testi-card { background: #0f0f1e; border: 1px solid #1e1e3a; border-radius: 12px; padding: 1.5rem; }
     .testi-stars { color: #a78bfa; font-size: 14px; margin-bottom: 0.75rem; }
@@ -155,6 +174,14 @@
       font-size: 13px; color: #404060;
       background: #0a0a12;
     }
+
+    @media (max-width: 760px) {
+      .nav { height: auto; min-height: 60px; padding: 1rem; align-items: flex-start; gap: 1rem; }
+      .nav, .nav-links { flex-wrap: wrap; }
+      .nav-links { gap: 1rem; }
+      .hero h1 { font-size: 42px; }
+      .about-grid, .contact-row { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -164,6 +191,7 @@
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#services">Services</a>
+    <a href="#blog">Blog</a>
     <a href="#reviews">Reviews</a>
     <a href="#contact">Contact</a>
   </div>
@@ -268,6 +296,35 @@
       <button class="service-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">👉 Start your Wild Rift coaching program</button>
     </div>
   </div>
+</section>
+
+<hr class="divider">
+
+<section id="blog">
+  <div class="section-tag">Blog</div>
+  <div class="section-title">Latest Wild Rift coaching notes</div>
+  <div class="section-sub">Short, practical guides from Danny on climbing faster, reviewing your games, and fixing the mistakes that keep players stuck.</div>
+  <div class="blog-grid">
+    <article class="blog-card">
+      <div class="blog-meta"><span class="blog-category">Macro</span><span>5 min read</span></div>
+      <div class="blog-title">Why you keep throwing mid-game leads</div>
+      <div class="blog-desc">Learn how to convert early kills into towers, dragons, Baron control, and clean closes instead of giving the enemy team a way back.</div>
+      <a class="blog-link" href="#contact">Request this VOD review →</a>
+    </article>
+    <article class="blog-card">
+      <div class="blog-meta"><span class="blog-category">VOD Review</span><span>4 min read</span></div>
+      <div class="blog-title">What a good Wild Rift VOD review actually fixes</div>
+      <div class="blog-desc">A focused review should reveal repeated patterns: bad recalls, missed waves, poor fight selection, weak vision habits, and unclear win conditions.</div>
+      <a class="blog-link" href="#services">See VOD options →</a>
+    </article>
+    <article class="blog-card">
+      <div class="blog-meta"><span class="blog-category">Climbing</span><span>6 min read</span></div>
+      <div class="blog-title">The fastest way to climb from Emerald to Master</div>
+      <div class="blog-desc">At this level, ranking up usually comes from cleaner champion pools, better objective timing, and fewer emotional queue decisions.</div>
+      <a class="blog-link" href="#contact">Build your climb plan →</a>
+    </article>
+  </div>
+  <div class="blog-note">Full posts are coming soon. For now, these topics show the type of coaching content that will live here: direct, high-elo advice players can apply immediately in ranked games.</div>
 </section>
 
 <hr class="divider">
