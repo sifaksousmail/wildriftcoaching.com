@@ -11,6 +11,17 @@
       <stop offset="0.5" stop-color="#8bd7ff"/>
       <stop offset="1" stop-color="#c4b5fd"/>
     </linearGradient>
+    <linearGradient id="streakGradient" x1="76" y1="188" x2="386" y2="244" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#67e8f9" stop-opacity="0"/>
+      <stop offset="0.18" stop-color="#67e8f9" stop-opacity="0.7"/>
+      <stop offset="0.64" stop-color="#8b5cf6" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#a855f7" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="shineGradient" x1="164" y1="118" x2="390" y2="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.32"/>
+      <stop offset="0.42" stop-color="#ffffff" stop-opacity="0.13"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
     <radialGradient id="bgGlow" cx="50%" cy="46%" r="62%">
       <stop offset="0" stop-color="#15133f"/>
       <stop offset="0.6" stop-color="#0b0a22"/>
@@ -18,23 +29,36 @@
     </radialGradient>
     <filter id="lightGlow" x="-10%" y="-10%" width="120%" height="120%">
       <feGaussianBlur stdDeviation="3.5" result="blur"/>
-      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.25  0 0 0 0 0.56  0 0 0 0 1  0 0 0 0.32 0" result="glow"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.25  0 0 0 0 0.56  0 0 0 0 1  0 0 0 0.38 0" result="glow"/>
       <feMerge>
         <feMergeNode in="glow"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+    <clipPath id="dClip">
+      <path d="M150 104H272C382 104 452 164 452 256S382 408 272 408H150V104ZM226 176V336H270C331 336 374 304 374 256S331 176 270 176H226Z"/>
+    </clipPath>
   </defs>
 
   <rect width="512" height="512" rx="80" fill="#080812"/>
   <circle cx="256" cy="256" r="202" fill="url(#bgGlow)" opacity="0.78"/>
+  <g opacity="0.72">
+    <path d="M74 196h182" stroke="url(#streakGradient)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M54 286h148" stroke="url(#streakGradient)" stroke-width="5" stroke-linecap="round" opacity="0.62"/>
+    <path d="M92 342h116" stroke="url(#streakGradient)" stroke-width="4" stroke-linecap="round" opacity="0.42"/>
+  </g>
 
   <g filter="url(#lightGlow)">
     <path d="M150 104H272C382 104 452 164 452 256S382 408 272 408H150V104ZM226 176V336H270C331 336 374 304 374 256S331 176 270 176H226Z" fill="url(#dGradient)" fill-rule="evenodd"/>
+    <g clip-path="url(#dClip)">
+      <path d="M158 116h236v74H158Z" fill="url(#shineGradient)" opacity="0.85"/>
+      <path d="M164 245h210" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.12"/>
+      <path d="M178 310h172" stroke="#67e8f9" stroke-width="3" stroke-linecap="round" opacity="0.16"/>
+    </g>
     <path d="M226 176V336H270C331 336 374 304 374 256S331 176 270 176H226Z" fill="#080812" opacity="0.98"/>
 
-    <path d="M150 104H272C382 104 452 164 452 256S382 408 272 408H150V104ZM226 176V336H270C331 336 374 304 374 256S331 176 270 176H226Z" fill="none" stroke="url(#edgeGradient)" stroke-width="5" stroke-linejoin="round" opacity="0.55"/>
-    <path d="M150 108V404" stroke="#d7fbff" stroke-width="7" stroke-linecap="square" opacity="0.48"/>
+    <path d="M150 104H272C382 104 452 164 452 256S382 408 272 408H150V104ZM226 176V336H270C331 336 374 304 374 256S331 176 270 176H226Z" fill="none" stroke="url(#edgeGradient)" stroke-width="5" stroke-linejoin="round" opacity="0.64"/>
+    <path d="M150 108V404" stroke="#d7fbff" stroke-width="7" stroke-linecap="square" opacity="0.56"/>
 
     <path d="M312 113C349 121 380 137 404 160C387 155 368 153 349 156C337 146 324 137 307 128L312 113Z" fill="#080812" opacity="0.82"/>
     <path d="M312 113C349 121 380 137 404 160C384 156 365 155 348 158" fill="none" stroke="#8bd7ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>

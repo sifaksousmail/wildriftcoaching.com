@@ -6,6 +6,11 @@
       <stop offset="0.8" stop-color="#7c3aed"/>
       <stop offset="1" stop-color="#a855f7"/>
     </linearGradient>
+    <linearGradient id="s" x1="72" y1="198" x2="286" y2="228" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#67e8f9" stop-opacity="0"/>
+      <stop offset="0.22" stop-color="#67e8f9" stop-opacity="0.68"/>
+      <stop offset="1" stop-color="#7c3aed" stop-opacity="0"/>
+    </linearGradient>
     <filter id="g" x="-9%" y="-9%" width="118%" height="118%">
       <feGaussianBlur stdDeviation="2.5" result="b"/>
       <feMerge>
@@ -15,9 +20,12 @@
     </filter>
   </defs>
   <rect width="512" height="512" rx="80" fill="#080812"/>
+  <path d="M74 202h170" stroke="url(#s)" stroke-width="7" stroke-linecap="round" opacity="0.7"/>
+  <path d="M58 292h128" stroke="url(#s)" stroke-width="5" stroke-linecap="round" opacity="0.45"/>
   <path filter="url(#g)" d="M150 104H272C382 104 452 164 452 256S382 408 272 408H150V104ZM226 176V336H270C331 336 374 304 374 256S331 176 270 176H226Z" fill="url(#d)" fill-rule="evenodd"/>
+  <path d="M158 116h232v72H158Z" fill="#ffffff" opacity="0.12"/>
   <path d="M226 176V336H270C331 336 374 304 374 256S331 176 270 176H226Z" fill="#080812" opacity="0.98"/>
-  <path d="M150 108V404" stroke="#d7fbff" stroke-width="7" stroke-linecap="square" opacity="0.45"/>
+  <path d="M150 108V404" stroke="#d7fbff" stroke-width="7" stroke-linecap="square" opacity="0.54"/>
   <path d="M312 113C349 121 380 137 404 160C387 155 368 153 349 156C337 146 324 137 307 128L312 113Z" fill="#080812" opacity="0.78"/>
   <path d="M363 146l13 5-14 4Z" fill="#67e8f9" opacity="0.88"/>
 </svg>
