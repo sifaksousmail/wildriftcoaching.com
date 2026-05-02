@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Danny Wild Rift coaching clean D favicon">
+  <defs>
+    <linearGradient id="d" x1="126" y1="96" x2="402" y2="416" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#67e8f9"/>
+      <stop offset="0.48" stop-color="#3b82f6"/>
+      <stop offset="0.8" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#a855f7"/>
+    </linearGradient>
+    <filter id="g" x="-9%" y="-9%" width="118%" height="118%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="80" fill="#080812"/>
+  <path filter="url(#g)" d="M150 104H272C382 104 452 164 452 256S382 408 272 408H150V104ZM226 176V336H270C331 336 374 304 374 256S331 176 270 176H226Z" fill="url(#d)" fill-rule="evenodd"/>
+  <path d="M226 176V336H270C331 336 374 304 374 256S331 176 270 176H226Z" fill="#080812" opacity="0.98"/>
+  <path d="M150 108V404" stroke="#d7fbff" stroke-width="7" stroke-linecap="square" opacity="0.45"/>
+  <path d="M312 113C349 121 380 137 404 160C387 155 368 153 349 156C337 146 324 137 307 128L312 113Z" fill="#080812" opacity="0.78"/>
+  <path d="M363 146l13 5-14 4Z" fill="#67e8f9" opacity="0.88"/>
+</svg>
