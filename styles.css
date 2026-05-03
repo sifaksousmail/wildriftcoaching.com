@@ -57,9 +57,110 @@
     .hero-logo-mark {
       width: min(172px, 42vw);
       height: auto;
-      margin-bottom: 1.1rem;
+      margin-bottom: 0;
       filter: drop-shadow(0 0 28px rgba(56,189,248,0.28)) drop-shadow(0 18px 30px rgba(0,0,0,0.42));
+      position: relative;
+      z-index: 2;
+      animation: heroMarkFloat 5.5s ease-in-out infinite;
     }
+    .hero-logo-system {
+      position: relative;
+      width: min(320px, 78vw);
+      min-height: 228px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1.1rem;
+      isolation: isolate;
+    }
+    .hero-logo-system::before {
+      content: "";
+      position: absolute;
+      inset: 26px 42px;
+      border: 1px solid rgba(124,58,237,0.22);
+      border-radius: 999px;
+      transform: rotate(-10deg);
+      box-shadow: inset 0 0 28px rgba(56,189,248,0.08), 0 0 28px rgba(124,58,237,0.08);
+    }
+    .hero-logo-system::after {
+      content: "";
+      position: absolute;
+      width: 68%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(56,189,248,0.42), rgba(124,58,237,0.35), transparent);
+      transform: translateY(18px) rotate(-7deg);
+      filter: blur(0.2px);
+      opacity: 0.7;
+    }
+    .rank-orb {
+      position: absolute;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 76px;
+      height: 76px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      filter: drop-shadow(0 0 18px rgba(56,189,248,0.34)) drop-shadow(0 14px 18px rgba(0,0,0,0.36));
+    }
+    .rank-icon {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .rank-orb::before {
+      content: none;
+    }
+    .rank-orb::after {
+      content: none;
+    }
+    .rank-orb-sovereign {
+      top: 18px;
+      right: 12px;
+      animation: rankFloatSovereign 6.8s ease-in-out infinite;
+    }
+    .rank-orb-sovereign::before {
+      content: none;
+    }
+    .rank-orb-challenger {
+      left: 8px;
+      bottom: 26px;
+      animation: rankFloatChallenger 7.4s ease-in-out infinite;
+    }
+    .rank-orb-challenger::before {
+      content: none;
+    }
+    .rank-trail {
+      position: absolute;
+      z-index: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(56,189,248,0.65), rgba(124,58,237,0.32), transparent);
+      opacity: 0.65;
+      filter: blur(0.3px);
+      transform-origin: center;
+    }
+    .rank-trail-one {
+      width: 128px;
+      left: 22px;
+      top: 91px;
+      transform: rotate(-5deg);
+      animation: trailSweepOne 4.8s ease-in-out infinite;
+    }
+    .rank-trail-two {
+      width: 104px;
+      right: 24px;
+      bottom: 76px;
+      transform: rotate(-5deg);
+      animation: trailSweepTwo 5.4s ease-in-out infinite;
+    }
+    @keyframes heroMarkFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+    @keyframes rankFloatSovereign { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-14px,10px); } }
+    @keyframes rankFloatChallenger { 0%,100% { transform: translate(0,0); } 50% { transform: translate(16px,-8px); } }
+    @keyframes trailSweepOne { 0%,100% { opacity: 0.25; transform: translateX(-8px) rotate(-5deg); } 50% { opacity: 0.82; transform: translateX(12px) rotate(-5deg); } }
+    @keyframes trailSweepTwo { 0%,100% { opacity: 0.22; transform: translateX(10px) rotate(-5deg); } 50% { opacity: 0.72; transform: translateX(-12px) rotate(-5deg); } }
     .rank-badge {
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(124,58,237,0.15); border: 1px solid #7c3aed;
@@ -271,7 +372,11 @@
       section { padding: 4rem 1rem; }
       .hero h1 { font-size: 42px; }
       .hero { padding: 4.5rem 1rem 4rem; }
-      .hero-logo-mark { width: min(138px, 46vw); margin-bottom: 0.85rem; }
+      .hero-logo-system { width: min(272px, 86vw); min-height: 202px; margin-bottom: 0.85rem; }
+      .hero-logo-mark { width: min(138px, 46vw); }
+      .rank-orb { width: 62px; height: 62px; }
+      .rank-orb-sovereign { right: 0; top: 12px; }
+      .rank-orb-challenger { left: 0; bottom: 18px; }
       .stats-row { gap: 1.35rem; padding: 2rem 1rem; }
       .contact-box { padding: 1.5rem; }
       .blog-grid.featured { grid-template-columns: 1fr; }
