@@ -134,11 +134,27 @@
 <div class="page-kicker">Contact</div>
 <h1>Book Wild Rift Coaching</h1>
 <p>Tell Danny your current rank, role, champion pool, and what you want to improve. He will help you choose between a free VOD review, paid VOD review, or 1v1 coaching session.</p>
-<div class="hero-btns"><a class="btn-primary" href="contact.html">Book Coaching</a><a class="btn-secondary" href="vod-review.html">VOD Review</a></div>
+<div class="hero-btns"><a class="btn-primary" href="contact.html">Book Coaching</a><a class="btn-secondary" href="free-vod-review.html">Get a Free VOD Review</a></div>
 </section>
 <section class="page-section">
 <h2>Send a coaching inquiry</h2>
-<div class="contact-box"><div class="contact-row"><input type="text" id="f-name" placeholder="Your name"><input type="email" id="f-email" placeholder="Email address"></div><select id="f-pkg"><option value="" disabled selected>Select a package</option><option>Free VOD Review</option><option>VOD Review — $15</option><option>1-on-1 Session — $20/hr</option><option>5-Session Bundle — $80</option></select><input type="text" id="f-rank" placeholder="Your current rank (e.g. Diamond II)"><textarea id="f-msg" placeholder="Your role, champion pool, and what you want to improve..."></textarea><button class="submit-btn" onclick="const name=document.getElementById('f-name').value;const email=document.getElementById('f-email').value;const pkg=document.getElementById('f-pkg').value;const rank=document.getElementById('f-rank').value;const msg=document.getElementById('f-msg').value;const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\nPackage: '+pkg+'\nRank: '+rank+'\nMessage: '+msg);window.location.href='mailto:CoachMeDanny@gmail.com?subject=Coaching Inquiry&body='+body;this.textContent='Opening your email app...';">Send Message</button></div><div class="social-links"><div class="social-link">Discord: CoachMeDanny</div><div class="social-link">Email: CoachMeDanny@gmail.com</div><a class="social-link" href="https://www.fiverr.com/sifaks/give-you-the-best-challenger-coaching-lol-or-wild-rift" target="_blank" rel="noopener">Book on Fiverr</a><a class="social-link" href="https://www.fiverr.com/users/sifaks/" target="_blank" rel="noopener">Fiverr Reviews</a></div>
+<div class="contact-box">
+  <div class="contact-row">
+    <input type="text" id="f-name" placeholder="Your name" aria-label="Your name" autocomplete="name">
+    <input type="email" id="f-email" placeholder="Email address" aria-label="Email address" autocomplete="email">
+  </div>
+  <select id="f-pkg" aria-label="Select a coaching package">
+    <option value="" disabled selected>Select a package</option>
+    <option>Free VOD Review</option>
+    <option>VOD Review — $15</option>
+    <option>1-on-1 Session — $20/hr</option>
+    <option>5-Session Bundle — $80</option>
+  </select>
+  <input type="text" id="f-rank" placeholder="Your current rank (e.g. Diamond II)" aria-label="Your current Wild Rift rank">
+  <textarea id="f-msg" placeholder="Your role, champion pool, and what you want to improve..." aria-label="Your role, champion pool, and what you want to improve"></textarea>
+  <button class="submit-btn" type="button" onclick="const name=document.getElementById('f-name').value;const email=document.getElementById('f-email').value;const pkg=document.getElementById('f-pkg').value;const rank=document.getElementById('f-rank').value;const msg=document.getElementById('f-msg').value;const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\nPackage: '+pkg+'\nRank: '+rank+'\nMessage: '+msg);window.location.href='mailto:CoachMeDanny@gmail.com?subject=Coaching Inquiry&body='+body;this.textContent='Opening your email app...';">Send Message</button>
+</div>
+<div class="social-links"><div class="social-link">Discord: CoachMeDanny</div><div class="social-link">Email: CoachMeDanny@gmail.com</div><a class="social-link" href="https://discord.com/users/CoachMeDanny" target="_blank" rel="noopener">Join Discord</a><a class="social-link" href="https://www.fiverr.com/sifaks/give-you-the-best-challenger-coaching-lol-or-wild-rift" target="_blank" rel="noopener">Book on Fiverr</a><a class="social-link" href="https://www.fiverr.com/users/sifaks/" target="_blank" rel="noopener">Fiverr Reviews</a></div>
 </section>
 </main>
 <footer>
