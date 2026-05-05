@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WildRiftCoaching.com YouTube Assets</title>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.documentElement.dataset.asset = params.get("asset") || "all";
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="asset-preview" aria-label="WildRiftCoaching.com YouTube asset preview">
+    <section class="asset thumbnail-artboard" aria-label="YouTube thumbnail template">
+      <div class="aurora aurora-one"></div>
+      <div class="aurora aurora-two"></div>
+      <div class="grid-layer"></div>
+      <div class="energy-line energy-line-one"></div>
+      <div class="energy-line energy-line-two"></div>
+      <div class="gameplay-panel" aria-hidden="true">
+        <img src="gameplay-thumbnail-frame.jpg" alt="">
+      </div>
+
+      <div class="thumbnail-copy">
+        <div class="eyebrow">WILDRIFTCOACHING.COM</div>
+        <h1>SOVEREIGN<br>GAMEPLAY</h1>
+        <p>Wild Rift Coaching</p>
+      </div>
+
+      <div class="thumbnail-brand" aria-hidden="true">
+        <img class="rank rank-sovereign" src="../rank-sovereign.png" alt="">
+        <img class="logo" src="../logo-main.svg" alt="">
+        <img class="rank rank-challenger" src="../rank-challenger.png" alt="">
+      </div>
+    </section>
+
+    <section class="asset profile-artboard" aria-label="YouTube profile picture">
+      <div class="profile-aura profile-aura-one"></div>
+      <div class="profile-aura profile-aura-two"></div>
+      <div class="profile-grid"></div>
+      <div class="profile-ring profile-ring-one"></div>
+      <div class="profile-ring profile-ring-two"></div>
+      <img class="profile-logo" src="../logo-main.svg" alt="WildRiftCoaching.com D logo">
+      <img class="profile-rank profile-rank-sovereign" src="../rank-sovereign.png" alt="Sovereign Wild Rift rank icon">
+      <img class="profile-rank profile-rank-challenger" src="../rank-challenger.png" alt="Challenger rank icon">
+    </section>
+
+    <section class="asset banner-artboard" aria-label="YouTube channel banner">
+      <div class="banner-aura banner-aura-one"></div>
+      <div class="banner-aura banner-aura-two"></div>
+      <div class="banner-aura banner-aura-three"></div>
+      <div class="banner-grid"></div>
+      <div class="banner-line banner-line-one"></div>
+      <div class="banner-line banner-line-two"></div>
+      <div class="banner-line banner-line-three"></div>
+
+      <img class="banner-rank banner-rank-sovereign" src="../rank-sovereign.png" alt="">
+      <img class="banner-rank banner-rank-challenger" src="../rank-challenger.png" alt="">
+
+      <div class="banner-safe-content">
+        <div class="banner-logo-wrap">
+          <div class="banner-logo-ring"></div>
+          <img class="banner-logo" src="../logo-main.svg" alt="WildRiftCoaching.com D logo">
+        </div>
+        <div class="banner-copy">
+          <h1>Wild Rift Coaching <span>with Danny</span></h1>
+          <p>Sovereign Coach &bull; Top 20 EU &bull; China Top 0.01%</p>
+          <div class="banner-url">WildRiftCoaching.com</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="asset banner-guide-artboard" aria-label="YouTube channel banner safe area guide">
+      <img class="guide-banner-image" src="youtube-channel-banner.png" alt="">
+      <div class="guide-safe guide-tv"><span>Full TV area 2048 x 1152</span></div>
+      <div class="guide-safe guide-desktop"><span>Desktop crop approx. 2048 x 338</span></div>
+      <div class="guide-safe guide-mobile"><span>Mobile safe area 1235 x 338</span></div>
+    </section>
+  </main>
+</body>
+</html>

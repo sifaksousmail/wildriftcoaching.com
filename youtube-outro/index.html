@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WildRiftCoaching.com YouTube Outro</title>
+  <script>
+    if (new URLSearchParams(window.location.search).has("export")) {
+      document.documentElement.classList.add("is-export");
+    }
+  </script>
+  <link rel="stylesheet" href="outro.css">
+</head>
+<body>
+  <main class="preview-shell" aria-label="WildRiftCoaching.com YouTube outro preview">
+    <section class="stage" id="outro-stage" aria-label="6 second YouTube outro animation">
+      <div class="aurora aurora-one"></div>
+      <div class="aurora aurora-two"></div>
+      <div class="grid-layer"></div>
+      <div class="energy-line line-one"></div>
+      <div class="energy-line line-two"></div>
+
+      <div class="brand-mark">
+        <div class="mark-ring"></div>
+        <img class="main-logo" src="../logo-main.svg" alt="WildRiftCoaching.com Danny D logo">
+      </div>
+
+      <div class="outro-copy">
+        <div class="thanks">Thanks for watching. Hit the like button ❤</div>
+        <div class="subscribe">Subscribe to improve your Wild Rift brain 🧠</div>
+        <div class="outro-site">WILDRIFTCOACHING.COM</div>
+      </div>
+
+      <audio id="outro-audio" preload="auto" src="assets/intro-music.mp3"></audio>
+
+      <div class="outro-controls" aria-label="YouTube outro playback controls">
+        <button class="control-button control-button-primary" id="play-outro" type="button">Play outro</button>
+        <button class="control-button" id="mute-outro" type="button" aria-pressed="false">Mute</button>
+      </div>
+    </section>
+  </main>
+  <script src="outro.js"></script>
+</body>
+</html>

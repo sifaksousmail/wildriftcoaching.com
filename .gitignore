@@ -1,0 +1,12 @@
+.DS_Store
+.playwright-cli/
+
+youtube-intro/node_modules/
+youtube-intro/frames/
+youtube-intro/export
+youtube-intro/*.mp4
+
+youtube-outro/node_modules/
+youtube-outro/frames/
+youtube-outro/export
+youtube-outro/*.mp4

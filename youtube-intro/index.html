@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WildRiftCoaching.com YouTube Intro</title>
+  <script>
+    if (new URLSearchParams(window.location.search).has("export")) {
+      document.documentElement.classList.add("is-exporting");
+    }
+  </script>
+  <link rel="stylesheet" href="intro.css">
+</head>
+<body>
+  <main class="preview-shell" aria-label="WildRiftCoaching.com YouTube intro preview">
+    <section class="stage" id="intro-stage" aria-label="8 second YouTube intro animation">
+      <div class="aurora aurora-one"></div>
+      <div class="aurora aurora-two"></div>
+      <div class="grid-layer"></div>
+      <div class="energy-streak streak-main"></div>
+      <div class="energy-streak streak-secondary"></div>
+
+      <div class="logo-system">
+        <div class="aura-ring aura-ring-one"></div>
+        <div class="aura-ring aura-ring-two"></div>
+        <img class="rank-mark rank-mark-sovereign" src="../rank-sovereign.png" alt="Sovereign Wild Rift rank icon">
+        <img class="rank-mark rank-mark-challenger" src="../rank-challenger.png" alt="Challenger rank icon">
+        <img class="main-logo" src="../logo-main.svg" alt="WildRiftCoaching.com Danny D logo">
+      </div>
+
+      <div class="intro-copy">
+        <div class="intro-title">Wild Rift Coaching</div>
+        <div class="intro-subtitle">with Danny</div>
+        <div class="intro-site">WILDRIFTCOACHING.COM</div>
+      </div>
+
+      <audio id="intro-audio" preload="auto" src="assets/eyes-patrick-jordan-patrikios.mp3"></audio>
+
+      <div class="intro-controls" aria-label="YouTube intro playback controls">
+        <button class="control-button control-button-primary" id="play-intro" type="button">Play intro</button>
+        <button class="control-button" id="mute-intro" type="button" aria-pressed="false">Mute</button>
+      </div>
+    </section>
+  </main>
+  <script src="intro.js"></script>
+</body>
+</html>

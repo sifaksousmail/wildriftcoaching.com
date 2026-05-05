@@ -22,6 +22,12 @@
       min-height: 100vh;
       position: relative;
       isolation: isolate;
+      --cursor-aura-x: 50vw;
+      --cursor-aura-y: 22vh;
+      --cursor-aura-opacity: 0;
+      --cursor-aura-blue: 0;
+      --cursor-aura-purple: 0;
+      --cursor-aura-soft: 0;
     }
     body::before,
     body::after {
@@ -51,6 +57,13 @@
         repeating-linear-gradient(180deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 5px);
       opacity: 0.86;
     }
+    body.has-cursor-aura::after {
+      background:
+        radial-gradient(circle at var(--cursor-aura-x) var(--cursor-aura-y), rgba(56,189,248,var(--cursor-aura-blue)) 0, rgba(124,58,237,var(--cursor-aura-purple)) 18%, rgba(10,10,18,0) 36%),
+        radial-gradient(circle at var(--cursor-aura-x) var(--cursor-aura-y), rgba(167,139,250,var(--cursor-aura-soft)) 0, rgba(10,10,18,0) 24%),
+        radial-gradient(ellipse at 50% 0%, transparent 0%, rgba(10,10,18,0.18) 38%, rgba(10,10,18,0.78) 82%),
+        repeating-linear-gradient(180deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 5px);
+    }
     body::selection { background: rgba(124,58,237,0.45); color: #fff; }
     img { max-width: 100%; height: auto; }
 
@@ -59,11 +72,11 @@
       background: rgba(10,10,18,0.92);
       border-bottom: 1px solid #1e1e3a;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2rem; height: 60px;
+      padding: 0 clamp(1rem, 2.4vw, 2rem); height: 60px;
       backdrop-filter: blur(8px);
     }
     .nav-logo { font-size: 18px; font-weight: 500; color: #a78bfa; letter-spacing: 1px; }
-    .nav-links { display: flex; gap: 2rem; }
+    .nav-links { display: flex; gap: clamp(0.85rem, 1.7vw, 2rem); }
     .nav-links a { color: #9090b0; font-size: 14px; text-decoration: none; transition: color 0.2s; cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; }
     .nav-links a:hover { color: #a78bfa; }
     .nav-cta {
@@ -816,6 +829,49 @@
     .legal-page h2 { color: #e0e0f0; font-size: 22px; margin: 1.6rem 0 0.6rem; }
     .legal-page p { color: #9090b0; font-size: 15px; line-height: 1.75; max-width: 760px; }
     .legal-page h2:first-child { margin-top: 0; }
+
+.faq-page {
+  max-width: 980px;
+}
+
+.faq-page .faq-list {
+  gap: 1rem;
+}
+
+.faq-page .faq-item {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(15,15,30,0.9), rgba(15,15,30,0.9)) padding-box,
+    linear-gradient(120deg, rgba(124,58,237,0.42), rgba(56,189,248,0.28)) border-box;
+  border-color: transparent;
+}
+
+.faq-page .faq-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(56,189,248,0.08), transparent 38%, rgba(124,58,237,0.06));
+  opacity: 0.7;
+}
+
+.faq-page .faq-item summary,
+.faq-page .faq-item p {
+  position: relative;
+}
+
+.faq-support-card {
+  margin-top: 2rem;
+  padding: 1.4rem;
+  border-radius: 8px;
+  border: 1px solid rgba(56,189,248,0.26);
+  background: linear-gradient(135deg, rgba(124,58,237,0.16), rgba(15,15,30,0.8) 42%, rgba(56,189,248,0.08));
+}
+
+.faq-support-card h2 {
+  margin-top: 0;
+}
 
 /* Premium radiant CTA system */
 :is(.nav-cta, .btn-primary, .submit-btn, .floating-cta, .service-card.featured .service-btn) {
