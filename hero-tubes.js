@@ -1,6 +1,22 @@
 const hero = document.querySelector("[data-tubes-hero]");
 const canvas = document.getElementById("hero-tubes");
 
+const settleBookingHash = () => {
+  if (window.location.hash !== "#book-coaching") return;
+  const bookingSection = document.getElementById("book-coaching");
+  if (!bookingSection) return;
+
+  window.setTimeout(() => {
+    bookingSection.scrollIntoView({ block: "start" });
+  }, 120);
+};
+
+if (document.readyState === "complete") {
+  settleBookingHash();
+} else {
+  window.addEventListener("load", settleBookingHash, { once: true });
+}
+
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const canUseWebGL = () => {
   try {
