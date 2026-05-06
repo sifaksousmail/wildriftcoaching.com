@@ -1142,6 +1142,111 @@ section {
   box-shadow: 0 0 0 1px rgba(56,189,248,0.06) inset, 0 14px 34px rgba(0,0,0,0.18), 0 0 24px rgba(56,189,248,0.12);
 }
 
+@property --pricing-aura-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+#book-coaching .service-card.featured {
+  isolation: isolate;
+  overflow: visible;
+  z-index: 0;
+}
+
+#book-coaching .service-card.featured::before,
+#book-coaching .service-card.featured::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+#book-coaching .service-card.featured::before {
+  inset: -2px;
+  z-index: -1;
+  padding: 1px;
+  background:
+    conic-gradient(
+      from var(--pricing-aura-angle),
+      rgba(56,189,248,0.14) 0deg,
+      rgba(124,58,237,0.7) 58deg,
+      rgba(56,189,248,0.96) 116deg,
+      rgba(167,139,250,0.62) 168deg,
+      rgba(18,58,125,0.24) 228deg,
+      rgba(124,58,237,0.72) 292deg,
+      rgba(56,189,248,0.14) 360deg
+    );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0.86;
+  filter: drop-shadow(0 0 8px rgba(56,189,248,0.35));
+  animation: pricing-aura-spin 7.5s linear infinite;
+}
+
+#book-coaching .service-card.featured::after {
+  inset: -16px;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(124,58,237,0.24), transparent 34%),
+    radial-gradient(circle at 82% 72%, rgba(56,189,248,0.26), transparent 38%),
+    linear-gradient(135deg, rgba(124,58,237,0.16), rgba(56,189,248,0.1));
+  opacity: 0.62;
+  filter: blur(16px);
+  animation: pricing-aura-breathe 4.8s ease-in-out infinite;
+}
+
+@keyframes pricing-aura-spin {
+  to { --pricing-aura-angle: 360deg; }
+}
+
+@keyframes pricing-aura-breathe {
+  0%, 100% {
+    opacity: 0.48;
+    transform: scale(0.985);
+  }
+  50% {
+    opacity: 0.72;
+    transform: scale(1.015);
+  }
+}
+
+@media (max-width: 760px) {
+  #book-coaching .service-card.featured::before {
+    opacity: 0.68;
+    filter: drop-shadow(0 0 6px rgba(56,189,248,0.26));
+  }
+
+  #book-coaching .service-card.featured::after {
+    inset: -10px;
+    opacity: 0.38;
+    filter: blur(12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #book-coaching .service-card.featured::before,
+  #book-coaching .service-card.featured::after {
+    animation: none !important;
+  }
+
+  #book-coaching .service-card.featured::before {
+    --pricing-aura-angle: 145deg;
+    opacity: 0.58;
+  }
+
+  #book-coaching .service-card.featured::after {
+    opacity: 0.36;
+    transform: none;
+  }
+}
+
 .badge-popular {
   background: #1a1a2e;
   border: 1px solid rgba(56,189,248,0.45);
