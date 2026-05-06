@@ -25,3 +25,8 @@ Help players rank up fast with personalized coaching, replay analysis, and real-
 ---
 
 Built with HTML/CSS and hosted on GitHub Pages.
+
+License
+
+This project is licensed under the MIT License © 2026 Sifaks Ousmail.
+See the LICENSE file for full terms.
