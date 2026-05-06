@@ -417,12 +417,16 @@
 
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
     #book-coaching, #coaching-faq { scroll-margin-top: 82px; }
+    #book-coaching { max-width: 1180px; }
     .payment-grid { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
     .service-card {
       background: #0f0f1e; border: 1px solid #1e1e3a;
       border-radius: 12px; padding: 1.75rem;
       transition: border-color 0.2s, transform 0.2s;
       cursor: default; position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
     }
     .service-card:hover { border-color: #7c3aed; transform: translateY(-3px); box-shadow: 0 0 28px rgba(124,58,237,0.16); }
     .service-card.featured { border-color: #7c3aed; }
@@ -434,6 +438,17 @@
     .service-icon { font-size: 24px; margin-bottom: 1rem; }
     .service-name { font-size: 17px; font-weight: 600; color: #e0e0f0; margin-bottom: 0.5rem; }
     .service-desc { font-size: 13px; color: #7070a0; line-height: 1.6; margin-bottom: 1.25rem; }
+    .service-benefits {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0.9rem 0 0;
+      padding-left: 1.1rem;
+    }
+    .service-benefits li {
+      color: #9090b0;
+      line-height: 1.45;
+    }
+    .service-card-actions { margin-top: auto; }
     .service-price { font-size: 26px; font-weight: 700; color: #a78bfa; }
     .service-price span { font-size: 14px; color: #6060a0; font-weight: 400; }
     .service-btn {
@@ -1122,8 +1137,9 @@ section {
 }
 
 .service-card.featured {
-  border-color: rgba(56,189,248,0.52);
-  background: linear-gradient(180deg, rgba(56,189,248,0.08), rgba(15,15,30,0.88) 34%);
+  border-color: rgba(56,189,248,0.58);
+  background: rgba(15,15,30,0.86);
+  box-shadow: 0 0 0 1px rgba(56,189,248,0.06) inset, 0 14px 34px rgba(0,0,0,0.18), 0 0 24px rgba(56,189,248,0.12);
 }
 
 .badge-popular {
@@ -1325,4 +1341,21 @@ section {
     0 0 0 1px rgba(255,255,255,0.1) inset,
     0 10px 24px rgba(0,0,0,0.3),
     0 0 24px rgba(56,189,248,0.3);
+}
+
+#book-coaching .service-card.featured .service-btn:not(.paypal-btn) {
+  background: linear-gradient(120deg, #6d28d9 0%, #8b5cf6 48%, #38bdf8 100%);
+  background-size: auto;
+  background-position: 0% 0%;
+  color: #fff;
+  border-color: rgba(255,255,255,0.14);
+}
+
+#book-coaching .service-card.featured .service-btn:not(.paypal-btn):hover,
+#book-coaching .service-card.featured .service-btn:not(.paypal-btn):focus-visible {
+  background-position: 100% 50%;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.1) inset,
+    0 10px 24px rgba(0,0,0,0.32),
+    0 0 22px rgba(56,189,248,0.26);
 }
