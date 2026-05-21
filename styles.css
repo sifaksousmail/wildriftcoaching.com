@@ -696,6 +696,7 @@
 .article { max-width: 860px; margin: 0 auto; padding: 2rem 2rem 5rem; }
 .article h1 { font-size: 44px; line-height: 1.1; margin-bottom: 1rem; }
 .article h2 { color: #e0e0f0; font-size: 28px; margin: 2.4rem 0 0.8rem; }
+.article h2[id] { scroll-margin-top: 92px; }
 .article h3 { color: #a78bfa; font-size: 19px; margin: 1.6rem 0 0.55rem; }
 .article p, .article li { color: #9090b0; font-size: 16px; line-height: 1.85; }
 .article-meta { color: #6060a0; font-size: 13px; margin-bottom: 1.25rem; }
