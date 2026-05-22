@@ -3,6 +3,9 @@
 .env.*
 .playwright-cli/
 
+# Local paid guide source/PDF. Do not deploy the full product files publicly.
+wild-rift-guide/
+
 youtube-intro/node_modules/
 youtube-intro/frames/
 youtube-intro/export
