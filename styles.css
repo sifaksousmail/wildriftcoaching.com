@@ -831,25 +831,8 @@
       box-shadow: 0 0 16px rgba(56,189,248,0.12);
     }
     .floating-cta {
-      position: fixed;
-      right: 1.25rem;
-      bottom: 1.25rem;
-      z-index: 120;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: linear-gradient(135deg, #7c3aed, #38bdf8);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.16);
-      border-radius: 999px;
-      padding: 0.85rem 1rem;
-      font-size: 14px;
-      font-weight: 800;
-      text-decoration: none;
-      box-shadow: 0 0 30px rgba(124,58,237,0.45), 0 12px 32px rgba(0,0,0,0.35);
-      transition: transform 0.2s, box-shadow 0.2s;
+      display: none !important;
     }
-    .floating-cta:hover { transform: translateY(-3px); box-shadow: 0 0 36px rgba(56,189,248,0.42), 0 16px 36px rgba(0,0,0,0.4); }
     a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
       outline: 2px solid var(--blue);
       outline-offset: 3px;
