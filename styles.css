@@ -1641,6 +1641,48 @@ section {
     padding-right: 12px;
   }
 
+  .payment-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .service-card {
+    min-width: 0;
+    padding: 1.35rem;
+  }
+
+  #book-coaching .service-card.featured::before {
+    inset: 0;
+  }
+
+  #book-coaching .service-card.featured::after {
+    inset: 0;
+    opacity: 0.34;
+    filter: blur(10px);
+  }
+
+  .service-name {
+    font-size: 16px;
+    line-height: 1.35;
+    overflow-wrap: break-word;
+  }
+
+  .service-price {
+    font-size: 24px;
+  }
+
+  .service-price span {
+    display: block;
+    margin-top: 0.1rem;
+    font-size: 13px;
+  }
+
+  .badge-popular {
+    max-width: calc(100% - 2rem);
+    text-align: center;
+    white-space: normal;
+    line-height: 1.25;
+  }
+
   .method-grid,
   .section-split,
   .session-steps {
