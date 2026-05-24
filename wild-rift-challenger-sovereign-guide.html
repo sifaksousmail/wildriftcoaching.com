@@ -101,7 +101,8 @@
       "description": "A 50+ page Wild Rift PDF guide by Danny covering role fundamentals, macro, wave management, objective control, replay review, ranked routines, and worksheets.",
       "image": "https://wildriftcoaching.com/payhip-wild-rift-guide-cover.png",
       "brand": {
-        "@id": "https://wildriftcoaching.com/#business"
+        "@type": "Brand",
+        "name": "WildRiftCoaching.com by Danny"
       },
       "seller": {
         "@id": "https://wildriftcoaching.com/#business"
@@ -112,8 +113,42 @@
         "@type": "Offer",
         "price": "9.99",
         "priceCurrency": "EUR",
+        "itemCondition": "https://schema.org/NewCondition",
         "availability": "https://schema.org/InStock",
-        "url": "https://payhip.com/b/kXKR7"
+        "url": "https://payhip.com/b/kXKR7",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "EUR"
+          },
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "US"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 0,
+              "maxValue": 0,
+              "unitCode": "DAY"
+            },
+            "transitTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 0,
+              "maxValue": 0,
+              "unitCode": "DAY"
+            }
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "US",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+          "merchantReturnLink": "https://wildriftcoaching.com/refund.html"
+        }
       }
     },
     {
