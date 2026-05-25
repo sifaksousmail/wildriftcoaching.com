@@ -1,0 +1,17 @@
+{
+  "name": "WildRiftCoaching.com by Danny",
+  "short_name": "Wild Rift Coaching",
+  "description": "Online Wild Rift coaching, VOD review, and role-specific ranked improvement with Danny.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#070812",
+  "theme_color": "#7c5cff",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
