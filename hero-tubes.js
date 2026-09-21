@@ -17,7 +17,10 @@ if (document.readyState === "complete") {
   window.addEventListener("load", settleBookingHash, { once: true });
 }
 
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const canUseTubes = () =>
+  window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
+  !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+  !navigator.connection?.saveData;
 const canUseWebGL = () => {
   try {
     const testCanvas = document.createElement("canvas");
@@ -27,11 +30,28 @@ const canUseWebGL = () => {
   }
 };
 
-if (hero && canvas && !prefersReducedMotion && canUseWebGL()) {
+if (hero && canvas && canUseTubes() && canUseWebGL()) {
+  let loading = false;
+  let pageHidden = false;
+  let visibilityObserver;
+  const heroIsVisible = () => {
+    const bounds = hero.getBoundingClientRect();
+    return !document.hidden && bounds.bottom > 0 && bounds.top < window.innerHeight;
+  };
+  const stopWaiting = () => {
+    visibilityObserver?.disconnect();
+    document.removeEventListener("visibilitychange", scheduleLoad);
+  };
+
   const loadTubes = async () => {
+    if (loading || pageHidden || !canUseTubes() || !heroIsVisible()) return;
+    loading = true;
+    stopWaiting();
     try {
       const module = await import("https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js");
+      if (pageHidden) return;
       const TubesCursor = module.default ?? module;
+      // The pinned component pauses its render loop offscreen and in hidden tabs.
       const app = TubesCursor(canvas, {
         tubes: {
           colors: ["#38bdf8", "#7c3aed", "#a78bfa"],
@@ -77,19 +97,37 @@ if (hero && canvas && !prefersReducedMotion && canUseWebGL()) {
       };
 
       window.addEventListener("pointermove", relayPointer, { passive: true });
-      window.addEventListener("pagehide", () => {
+      window.addEventListener("pagehide", (event) => {
+        if (event.persisted) return;
         window.removeEventListener("pointermove", relayPointer);
         app?.dispose?.();
-      }, { once: true });
+      });
     } catch (error) {
       hero.classList.remove("tubes-ready");
       console.info("Hero tube background skipped:", error);
     }
   };
 
-  if ("requestIdleCallback" in window) {
-    window.requestIdleCallback(loadTubes, { timeout: 1600 });
-  } else {
-    window.addEventListener("load", loadTubes, { once: true });
+  function scheduleLoad() {
+    if (loading || pageHidden || !heroIsVisible()) return;
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(loadTubes, { timeout: 1600 });
+    } else if (document.readyState === "complete") {
+      loadTubes();
+    } else {
+      window.addEventListener("load", loadTubes, { once: true });
+    }
   }
+
+  if ("IntersectionObserver" in window) {
+    visibilityObserver = new IntersectionObserver(scheduleLoad);
+    visibilityObserver.observe(hero);
+  }
+  document.addEventListener("visibilitychange", scheduleLoad);
+  window.addEventListener("pagehide", (event) => {
+    if (event.persisted) return;
+    pageHidden = true;
+    stopWaiting();
+  });
+  scheduleLoad();
 }
