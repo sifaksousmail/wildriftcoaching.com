@@ -412,6 +412,7 @@
       border: 1px solid rgba(124,58,237,0.5);
       background: rgba(15,15,30,0.78);
       color: #e0e0f0;
+      text-decoration: none;
       border-radius: 999px;
       padding: 0.55rem 0.9rem;
       font-size: 12px;
