@@ -741,13 +741,17 @@
       font-size: 13px;
       font-weight: 600;
     }
+    .guide-price-comparison-values {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      white-space: nowrap;
+    }
     .guide-price-comparison s {
-      margin-inline-start: 0.25rem;
       color: #dce0f6;
       font-size: 21px;
       font-weight: 800;
       text-decoration-thickness: 2px;
-      white-space: nowrap;
     }
     .guide-price-saving {
       padding: 0.35rem 0.6rem;
