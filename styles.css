@@ -543,7 +543,7 @@
     }
 
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-    #book-coaching, #coaching-faq, #pdf-guide { scroll-margin-top: 82px; }
+    #book-coaching, #coaching-faq, #pdf-guide, #buy-guide { scroll-margin-top: 82px; }
     #book-coaching { max-width: 1180px; }
     .payment-grid { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
     .service-card {
@@ -962,6 +962,9 @@
 .page-section h3 { color: #a78bfa; font-size: 18px; margin: 1.6rem 0 0.55rem; }
 .page-section p, .page-section li { color: #9090b0; line-height: 1.8; font-size: 15px; }
 .page-section ul, .article ul { margin: 1rem 0 0; padding-left: 1.25rem; }
+.replay-drill ol { margin-top: 0.75rem; padding-left: 1.25rem; }
+.replay-drill li + li { margin-top: 0.5rem; }
+.replay-drill .hero-btns { margin-top: 0.75rem; }
 .cta-band { background: linear-gradient(135deg, rgba(124,58,237,0.18), rgba(56,189,248,0.08)); border: 1px solid rgba(124,58,237,0.45); border-radius: 14px; padding: 1.6rem; margin-top: 2rem; }
 .cta-band h2, .cta-band h3 { margin-top: 0; }
 .article { max-width: 860px; margin: 0 auto; padding: 2rem 2rem 5rem; }
@@ -970,7 +973,7 @@
 .article h2[id], .article section[id], .page-section h2[id], #contact-form { scroll-margin-top: 92px; }
 @media (max-width: 768px) {
   .article h2[id], .article section[id], .page-section h2[id],
-  #book-coaching, #coaching-faq, #pdf-guide, #contact-form { scroll-margin-top: 230px; }
+  #book-coaching, #coaching-faq, #pdf-guide, #buy-guide, #contact-form { scroll-margin-top: 230px; }
 }
 .article h3 { color: #a78bfa; font-size: 19px; margin: 1.6rem 0 0.55rem; }
 .article p, .article li { color: #9090b0; font-size: 16px; line-height: 1.85; }
