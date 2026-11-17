@@ -731,7 +731,32 @@
       font-weight: 800;
       line-height: 1.1;
     }
-    .guide-price span {
+    .guide-price-comparison {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem 0.7rem;
+      margin-top: 0.55rem;
+      color: #b4bbdf;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .guide-price-comparison s {
+      margin-inline-start: 0.25rem;
+      color: #dce0f6;
+      font-size: 21px;
+      font-weight: 800;
+      text-decoration-thickness: 2px;
+      white-space: nowrap;
+    }
+    .guide-price-saving {
+      padding: 0.35rem 0.6rem;
+      border: 1px solid rgba(167,139,250,0.4);
+      border-radius: 6px;
+      background: rgba(124,58,237,0.18);
+      color: #e2d8ff;
+    }
+    .guide-price-note {
       display: block;
       margin-top: 0.35rem;
       color: #8f96c3;
@@ -920,6 +945,7 @@
       .guide-offer-copy .section-sub { text-align: center; }
       .guide-offer-list { margin-left: auto; margin-right: auto; max-width: 28rem; }
       .guide-price { font-size: 24px; text-align: center; }
+      .guide-price-comparison { justify-content: center; }
       .guide-blog-copy h2 { font-size: 26px; text-align: center; }
       .guide-blog-copy p { text-align: center; }
       .guide-blog-copy .hero-btns { justify-content: center; }
