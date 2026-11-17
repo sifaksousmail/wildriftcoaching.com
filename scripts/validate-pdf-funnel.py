@@ -24,6 +24,7 @@ BUY = "https://payhip.com/b/kXKR7"
 SAMPLE = "https://payhip.com/preview/kXKR7"
 COVER = "payhip-wild-rift-guide-cover.png"
 PAGES = ("index.html", "blog.html", PRODUCT)
+ANALYTICS_SCRIPT = "pdf-analytics.js"
 VOID = set("area base br col embed hr img input link meta param source track wbr".split())
 BLOCK = set("p div li ul ol section article h1 h2 h3 br".split())
 
@@ -140,6 +141,30 @@ def validate(root):
             pages[name] = Page((root / name).read_text(encoding="utf-8"))
         except (OSError, UnicodeError, ValueError) as exc:
             check(False, f"{name}: cannot read HTML: {exc}")
+
+    check((root / ANALYTICS_SCRIPT).is_file(), f"missing {ANALYTICS_SCRIPT}")
+    tracked_link_ids = set()
+    for path in sorted(root.glob("*.html")):
+        page = pages.get(path.name) or Page(path.read_text(encoding="utf-8"))
+        pdf_links = [node for node in page.nodes
+                     if node.tag == "a" and node.attrs.get("href") in {BUY, SAMPLE}]
+        if not pdf_links:
+            continue
+        scripts = [node for node in page.nodes
+                   if node.tag == "script" and node.attrs.get("src") == ANALYTICS_SCRIPT]
+        check(len(scripts) == 1 and "defer" in scripts[0].attrs,
+              f"{path.name}: load {ANALYTICS_SCRIPT} once with defer")
+        ids = Counter(node.attrs.get("id") for node in page.nodes)
+        for link in pdf_links:
+            identity = link.attrs.get("id", "")
+            suffix = "buy" if link.attrs["href"] == BUY else "preview"
+            where = f"{path.name}:{link.line}"
+            check(bool(re.fullmatch(rf"pdf-[a-z0-9-]+-{suffix}", identity)),
+                  f"{where}: missing stable PDF {suffix} link ID")
+            if identity:
+                check(ids[identity] == 1 and identity not in tracked_link_ids,
+                      f"{where}: duplicate PDF analytics link ID {identity!r}")
+                tracked_link_ids.add(identity)
 
     for name, page in pages.items():
         ids = Counter(n.attrs["id"] for n in page.nodes if n.attrs.get("id"))
